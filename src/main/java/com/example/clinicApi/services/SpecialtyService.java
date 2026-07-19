@@ -22,4 +22,12 @@ public class SpecialtyService {
         Optional<Specialty> obj = repository.findById(id);
         return obj.get();
     }
+
+    public Specialty insert(Specialty obj){
+        return repository.save(obj);
+    }
+
+    public void delete(Long id){
+        repository.deleteById(id);
+    }
 }

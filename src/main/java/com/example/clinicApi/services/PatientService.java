@@ -22,4 +22,24 @@ public class PatientService {
         Optional<Patient> obj = repository.findById(id);
         return obj.get();
     }
+
+    public Patient insert(Patient obj){
+        return repository.save(obj);
+    }
+
+    public void delete(Long id){
+        repository.deleteById(id);
+    }
+
+    public Patient update(Long id, Patient obj){
+        Patient entity = repository.getReferenceById(id);
+        updateData(entity, obj);
+        return repository.save(entity);
+    }
+
+    public void updateData(Patient entity, Patient obj){
+        entity.setName(obj.getName());
+        entity.setEmail(obj.getEmail());
+        entity.setPhone(obj.getPhone());
+    }
 }

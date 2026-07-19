@@ -22,4 +22,25 @@ public class DoctorService {
         Optional<Doctor> obj = repository.findById(id);
         return obj.get();
     }
+
+    public Doctor insert(Doctor obj){
+        return repository.save(obj);
+    }
+
+    public void delete(Long id){
+        repository.deleteById(id);
+    }
+
+    public Doctor update(Long id, Doctor obj){
+        Doctor entity = repository.getReferenceById(id);
+        updateData(entity, obj);
+        return repository.save(entity);
+    }
+
+    public void updateData(Doctor entity, Doctor obj){
+        entity.setName(obj.getName());
+        entity.setEmail(obj.getEmail());
+        entity.setPhone(obj.getPhone());
+        entity.setSpecialty(obj.getSpecialty());
+    }
 }
