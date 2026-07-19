@@ -1,18 +1,25 @@
 package com.example.clinicApi.entities;
 
+import jakarta.persistence.*;
+
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+@Entity
+@Table(name = "tb_patient")
 public class Patient implements Serializable {
     private static final long serialversionUID = 1L;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String email;
     private String phone;
 
+    @OneToMany(mappedBy = "patient")
     private Set<Appointment> appointments = new HashSet<>();
 
     public Patient(){}

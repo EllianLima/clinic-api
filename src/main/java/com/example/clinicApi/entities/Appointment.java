@@ -2,15 +2,26 @@ package com.example.clinicApi.entities;
 
 import com.example.clinicApi.entities.enums.PaymentType;
 import com.example.clinicApi.entities.enums.Status;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.util.Objects;
 
+@Entity
+@Table(name = "tb_appointment")
 public class Appointment implements Serializable {
     private static final long serialversionUID = 1L;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "doctor_id")
     private Doctor doctor;
+
+    @ManyToOne
+    @JoinColumn(name = "patient_id")
     private Patient patient;
 
     private Status status;
