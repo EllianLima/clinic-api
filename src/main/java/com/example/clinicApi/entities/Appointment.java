@@ -24,7 +24,10 @@ public class Appointment implements Serializable {
     @JoinColumn(name = "patient_id")
     private Patient patient;
 
+    @Enumerated(EnumType.STRING)
     private Status status;
+
+    @Enumerated(EnumType.STRING)
     private PaymentType paymentType;
 
     public Appointment(){}

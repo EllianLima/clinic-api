@@ -22,4 +22,8 @@ public class AppointmentService {
         Optional<Appointment> obj = repository.findById(id);
         return obj.get();
     }
+
+    public Appointment insert(Appointment obj){
+        return repository.save(obj);
+    }
 }

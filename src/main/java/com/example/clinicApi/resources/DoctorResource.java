@@ -37,14 +37,14 @@ public class DoctorResource {
         return ResponseEntity.created(uri).body(obj);
     }
 
-    @DeleteMapping
+    @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id){
          service.delete(id);
          return ResponseEntity.noContent().build();
 
     }
 
-    @PutMapping
+    @PutMapping(value = "/{id}")
     public ResponseEntity<Doctor> update(@PathVariable Long id, Doctor obj){
         obj = service.update(id, obj);
         return ResponseEntity.ok().body(obj);

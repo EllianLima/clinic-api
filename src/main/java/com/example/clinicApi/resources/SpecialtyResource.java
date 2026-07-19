@@ -11,7 +11,7 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/Specialtys")
+@RequestMapping(value = "/specialties")
 public class SpecialtyResource {
     
     @Autowired
@@ -37,7 +37,7 @@ public class SpecialtyResource {
         return ResponseEntity.created(uri).body(obj);
     }
     
-    @DeleteMapping
+    @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> delete(@PathVariable Long id){
          service.delete(id);
          return ResponseEntity.noContent().build();
