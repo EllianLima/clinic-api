@@ -7,14 +7,14 @@ public class StandardError {
     private Integer status;
     private String error;
     private String message;
-    private String patch;
+    private String path;
 
-    public StandardError(Instant timestamp, Integer status, String error, String message, String patch) {
+    public StandardError(Instant timestamp, Integer status, String error, String message, String path) {
         this.timestamp = timestamp;
         this.status = status;
         this.error = error;
         this.message = message;
-        this.patch = patch;
+        this.path = path;
     }
 
     public Instant getTimestamp() {
@@ -50,10 +50,10 @@ public class StandardError {
     }
 
     public String getPatch() {
-        return patch;
+        return path;
     }
 
-    public void setPatch(String patch) {
-        this.patch = patch;
+    public void setPatch(String path) {
+        this.path = path;
     }
 }

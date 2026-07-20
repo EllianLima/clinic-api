@@ -1,6 +1,6 @@
 package com.example.clinicApi.repositories;
 
-import com.example.clinicApi.entities.Appointment;
+
 import com.example.clinicApi.entities.Doctor;
 import org.springframework.data.jpa.repository.JpaRepository;
 

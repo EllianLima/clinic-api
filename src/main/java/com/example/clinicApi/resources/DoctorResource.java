@@ -45,7 +45,7 @@ public class DoctorResource {
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<Doctor> update(@PathVariable Long id, Doctor obj){
+    public ResponseEntity<Doctor> update(@PathVariable Long id,@RequestBody Doctor obj){
         obj = service.update(id, obj);
         return ResponseEntity.ok().body(obj);
     }
