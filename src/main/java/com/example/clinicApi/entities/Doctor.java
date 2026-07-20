@@ -1,5 +1,6 @@
 package com.example.clinicApi.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -24,6 +25,7 @@ public class Doctor implements Serializable {
     private Specialty specialty;
 
     @OneToMany(mappedBy = "doctor")
+    @JsonIgnore
     private Set<Appointment> appointments = new HashSet<>();
 
     public Doctor(){}
